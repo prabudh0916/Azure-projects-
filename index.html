@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Azure Image Text Safety Scanner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>AI Image Text Safety Scanner</h1>
+
+<div class="config">
+
+<h2>Azure OCR</h2>
+
+<input id="ocrEndpoint" placeholder="OCR Endpoint">
+<input id="ocrKey" placeholder="OCR Key">
+
+<h2>Azure Content Safety</h2>
+
+<input id="safetyEndpoint" placeholder="Content Safety Endpoint">
+<input id="safetyKey" placeholder="Content Safety Key">
+
+</div>
+
+
+<div class="controls">
+
+<button onclick="uploadImage()">Upload Image</button>
+
+<input type="file" id="fileInput" accept="image/*" hidden>
+
+<button onclick="startCamera()">Capture Image</button>
+
+<button id="scanBtn" onclick="startScan()" disabled>
+Start Scan
+</button>
+
+</div>
+
+
+<video id="camera" autoplay></video>
+
+<canvas id="canvas"></canvas>
+
+
+<div class="preview">
+
+<h2>Image Preview</h2>
+<img id="previewImg">
+
+</div>
+
+
+<div class="results">
+
+<h2>Extracted Text</h2>
+<pre id="ocrText"></pre>
+
+<h2>Content Safety Category Scores</h2>
+
+<div class="category">Hate: <span id="hate"></span></div>
+<div class="category">Violence: <span id="violence"></span></div>
+<div class="category">Self Harm: <span id="selfharm"></span></div>
+<div class="category">Sexual: <span id="sexual"></span></div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
